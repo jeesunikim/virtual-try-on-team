@@ -11,3 +11,7 @@ yarn-error.log
 # .next
 #
 .next
+
+# Backend
+backend/.venv
+backend/*.pyc
