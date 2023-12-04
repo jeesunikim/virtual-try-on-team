@@ -32,9 +32,10 @@ def try_on_outfit(
     # s3.upload_fileobj(selfie.file, settings.AWS_STORAGE_BUCKET_NAME, selfie_key)
     # s3.upload_fileobj(outfit.file, settings.AWS_STORAGE_BUCKET_NAME, outfit_key)
 
-    # # Save image keys to the Try model
+    # # # Save image keys to the Try model
     # try_on.selfie.name = selfie_key
     # try_on.outfit.name = outfit_key
+
     try_on.save()
 
     # send images to mode
