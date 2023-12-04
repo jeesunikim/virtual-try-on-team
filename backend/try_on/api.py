@@ -1,4 +1,5 @@
 from django.http import HttpRequest
+from django.shortcuts import get_object_or_404
 from ninja import Query, UploadedFile, File, Router
 from try_on.models import Try, User
 
@@ -15,7 +16,7 @@ def try_on_outfit(
     outfit: UploadedFile = File(...),
 ):
     # Find the user by email
-    user, _ = User.objects.get_or_create(email=payload.email)
+    user = get_object_or_404(User, email=payload.email)
     try_on = Try.objects.create(user=user)
 
     # try_on.save()
