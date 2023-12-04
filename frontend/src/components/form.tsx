@@ -5,6 +5,11 @@ import { validateEmail } from "@/helpers/validateEmail";
 
 import { Button } from "@/components/button";
 
+type FormProps = {
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setResponseMessage: React.Dispatch<React.SetStateAction<string>>;
+};
+
 const Input = ({
   label,
   children,
@@ -20,7 +25,10 @@ const Input = ({
   </div>
 );
 
-export const Form = () => {
+export const Form: React.FC<FormProps> = ({
+  setIsLoading,
+  setResponseMessage,
+}) => {
   const [selfieFile, setSelfieFile] = useState<File | null>(null);
   const [outfitFile, setOutfitFile] = useState<File | null>(null);
   const [email, setEmail] = useState("");
@@ -57,9 +65,16 @@ export const Form = () => {
     try {
       console.log("**LOG** handleSubmit email: ", email);
       console.log("**LOG** handleSubmit selfieFile: ", selfieFile);
-      submitForm({ email, selfieFile, outfitFile });
+
+      setIsLoading(true);
+      const response = await submitForm({ email, selfieFile, outfitFile });
+
+      console.log("**LOG** response: ", response);
+      setResponseMessage(response.message);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error uploading file:", error);
+      setIsLoading(false);
     }
   };
 

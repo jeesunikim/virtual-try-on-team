@@ -17,8 +17,8 @@ export const submitForm = async ({
   outfitFile: File;
 }) => {
   const formData = new FormData();
-  formData.append("selfieFile", selfieFile);
-  formData.append("outfitFile", outfitFile);
+  formData.append("selfie", selfieFile);
+  formData.append("outfit", outfitFile);
   formData.append("email", email);
 
   // the below is a dummy api's requirement
@@ -27,8 +27,18 @@ export const submitForm = async ({
   console.log("**LOG** formData: ", formData);
 
   try {
+    // const response = await axios.post(
+    //   `https://api.imgbb.com/1/upload?key=${testApiKey}`,
+    //   formData,
+    //   {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   }
+    // );
+
     const response = await axios.post(
-      `https://api.imgbb.com/1/upload?key=${testApiKey}`,
+      `http://192.168.3.21:8000/api/try_on/try_on_outfit/${email}`,
       formData,
       {
         headers: {
