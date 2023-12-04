@@ -18,3 +18,4 @@ backend/*.pyc
 backend/db.sqlite3
 backend/media/*
 backend/django_project/__pycache__/ 
+backend/try_on/__pycache__/

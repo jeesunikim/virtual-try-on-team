@@ -8,18 +8,16 @@ from try_on.schemas import TryOnRequest
 router = Router()
 
 
-@router.post("/try_on_outfit")
+@router.post("/try_on_outfit/{email}")
 def try_on_outfit(
     request: HttpRequest,
-    payload: TryOnRequest,
+    email: str,
     selfie: UploadedFile = File(...),
     outfit: UploadedFile = File(...),
 ):
     # Find the user by email
-    user = get_object_or_404(User, email=payload.email)
+    user = get_object_or_404(User, email=email)
     try_on = Try.objects.create(user=user)
-
-    # try_on.save()
 
     # TODO upload to s3
     try_on.selfie.save(selfie.name, selfie)
