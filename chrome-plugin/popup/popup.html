@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <!-- <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+  </head>
+  <body>
+    <div class="mdc-tab-bar" role="tablist">
+      <div class="mdc-tab-scroller">
+        <div class="mdc-tab-scroller__scroll-area">
+          <div class="mdc-tab-scroller__scroll-content">
+            <button id="try-cloth-button" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+              <span class="mdc-tab__content">
+                <span class="mdc-tab__icon material-icons" aria-hidden="true">face</span>
+              </span>
+              <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+              </span>
+              <span class="mdc-tab__ripple"></span>
+            </button>
+            <button id="profile-button" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+              <span class="mdc-tab__content">
+              <span class="mdc-tab__icon material-icons" aria-hidden="true">person</span>
+              </span>
+              <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+              </span>
+              <span class="mdc-tab__ripple"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="try-cloth" class="flex">
+      <div id="pic-error">
+        Please upload a picture of yourself
+      </div>
+      <div id="images">
+        <div id="loading">
+          Loading
+        </div>
+        <div id="image-carousel">
+          <img id="image-carousel-img">
+          <div class="image-carousel-buttons">
+            <button id="decrement-image"><</button>
+            <button id="try-on" class="try-it-on">Try it on</button>
+            <button id="increment-image">></button>
+          </div>
+        </div>
+      </div>
+     </div>
+
+    <div id="api-result" class="hide">
+        <div id="loader" class="loader"></div>
+        <img id="result-img">
+    </div>
+
+      
+    <div id="profile"  class="profile-container hide">
+      <img id="display-pic">
+      <label for="file-upload" class="custom-file-upload">
+        Upload New Photo
+    </label>
+    <input id="file-upload"  accept="image/*" type="file"/>
+    </div>
+    
+    <script src="popup.js"></script>
+  </body>
+</html>
