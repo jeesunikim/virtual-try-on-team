@@ -13,6 +13,7 @@ frontend/yarn-error.log
 .next
 
 # Backend
+backend/.env
 backend/.venv
 backend/*.pyc
 backend/db.sqlite3
