@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const testApiKey = "87c7d061538f397245ceb7ccc99fa376";
-
 // OUR API
 // outfit
 // selfie
@@ -22,7 +20,7 @@ export const submitForm = async ({
   formData.append("email", email);
 
   // the below is a dummy api's requirement
-  formData.append("image", outfitFile);
+  // formData.append("image", outfitFile);
 
   console.log("**LOG** formData: ", formData);
 
